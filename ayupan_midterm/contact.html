@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Us — CCS2110 College of Computer Studies.">
+  <title>Contact Us | CCS2110</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Embedded CSS: contact-page layout and form styling. */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+    .contact-details h3 { margin-top: 0; }
+    .contact-details address { font-style: normal; }
+    .contact-details p { margin-bottom: 1.5rem; }
+    .contact-form {
+      padding: 1.75rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+    .contact-form h3 { margin-top: 0; }
+    .form-field { margin-bottom: 1.25rem; }
+    .form-field label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+    .form-field input, .form-field textarea {
+      display: block;
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--paper);
+      color: var(--text);
+      font: inherit;
+    }
+    .form-field textarea { min-height: 150px; resize: vertical; }
+    .contact-form button {
+      padding: 0.8rem 1.5rem;
+      border: 0;
+      border-radius: 5px;
+      background: var(--primary);
+      color: var(--on-primary);
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 150ms ease;
+    }
+    .contact-form button:hover { background: var(--primary-hover); }
+    .form-note { color: var(--muted); font-size: 0.9rem; }
+    .form-status { font-weight: 600; color: var(--primary); }
+    @media (max-width: 700px) {
+      .contact-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+      .contact-form { padding: 1.25rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .contact-form button { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header>
+    <div class="brand container">
+      <img src="logo.png" alt="Logo" width="88" height="88">
+      <h1>CCS2110 - College of Computer Studies</h1>
+    </div>
+    <nav class="container" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="history.html">History</a>
+      <a href="contact.html" aria-current="page">Contact Us</a>
+      <a href="mission.html">Mission and Vision</a>
+    </nav>
+  </header>
+  <main id="main-content" class="container">
+    <section class="content-box" aria-labelledby="contact">
+      <h2 id="contact">Contact Us</h2>
+      <div class="contact-layout">
+        <div class="contact-details">
+          <h3>Contact Details</h3>
+          <p class="form-note">Sample contact details for teaching/demo purposes.</p>
+          <address>
+            <p><strong>Address</strong><br>123 Learning Avenue, Sample City, Philippines</p>
+            <p><strong>Email</strong><br><a href="mailto:info@ccs2110.example">info@ccs2110.example</a></p>
+            <p><strong>Phone</strong><br><a href="tel:+63280000000">+63 (2) 8000 0000</a></p>
+          </address>
+        </div>
+        <form class="contact-form" action="contact.html" method="get"
+          onsubmit="event.preventDefault(); document.getElementById('form-status').hidden = false;">
+          <h3>Send a Message</h3>
+          <p class="form-note">All fields are required. This demo form does not send messages.</p>
+          <div class="form-field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" maxlength="100" required>
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" maxlength="254" required>
+          </div>
+          <div class="form-field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" maxlength="5000" required></textarea>
+          </div>
+          <button type="submit">Submit</button>
+          <p id="form-status" class="form-status" role="status" hidden>Demo only: your message has not been sent.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p class="container">© 2025 CCS2110 — College of Computer Studies. All rights reserved. Prepared for teaching/demo purposes — replace with your official statements. | [Insert Name] - [Insert Course and Section]</p>
+  </footer>
+</body>
+</html>
